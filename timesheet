@@ -12,4 +12,7 @@ sun     5/18/25    7:15pm     11:00pm    3.75    spun up a pfsense ce vm,
                                                  TA-pfSense splunk add-on in conjunction 
                                                  with CIM to receive logs & read fields 
                                                  from pfSense. 	
-mon     5/19/25    11:10pm    
+mon     5/19/25    11:10pm                       Read about open source IDS solutions, 
+                                                 decide on Suricata due to pfsense and 
+                                                 splunk support, install suricata package 
+                                                 on pfsense
