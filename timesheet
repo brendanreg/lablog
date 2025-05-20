@@ -1,0 +1,15 @@
+       	date	     start	    stop	     hours   description	                                 details	    discussion 	 	 	 	 	 	 	 	 	 	 
+sun     5/18/25    7:15pm     11:00pm	 	 3.75    spun up a pfsense ce vm, 
+                                                 configured it to use hyper-v  
+                                                 external switch for wan interface and 
+                                                 internal switch for lan interface, 
+                                                 configured dhcp & ssh + enable remote 
+                                                 syslog server, spun up a windows server 
+                                                 2022 vm and promoted to ad domain 
+                                                 controller, installed splunk enterprise, 
+                                                 configured local event viewer data inputs, 
+                                                 created new udp data input and leveraged 
+                                                 TA-pfSense splunk add-on in conjunction 
+                                                 with CIM to receive logs & read fields 
+                                                 from pfSense. 	
+mon     5/19/25    11:10pm    
