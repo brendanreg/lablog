@@ -17,3 +17,6 @@ mon     5/19/25    11:10pm     11:35pm   0.50    Read about open source IDS solu
                                                  splunk support, install suricata package 
                                                  on pfsense, begin configuring suricata        
                                                  on wan interface
+tues    5/20/25    5:15pm      5:43pm    0.50    enable suricata on wan interface, discover 
+                                                 and troubleshoot immediate connectivity issues 
+                                                 due to ids blocking everything lol.
