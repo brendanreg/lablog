@@ -1,5 +1,5 @@
-       	date	     start	    stop	     hours   description	                                 details	    discussion 	 	 	 	 	 	 	 	 	 	 
-sun     5/18/25    7:15pm     11:00pm	 	 3.75    spun up a pfsense ce vm, 
+        date	     start	    stop     hours   description	                                 details	    discussion 	 	 	 	 	 	 	 	 	 	 
+sun     5/18/25    7:15pm     11:00pm    3.75    spun up a pfsense ce vm, 
                                                  configured it to use hyper-v  
                                                  external switch for wan interface and 
                                                  internal switch for lan interface, 
