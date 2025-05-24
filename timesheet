@@ -32,4 +32,7 @@ fri     5/24/25    10:45pm    12:11am    1.50    post-research on ids/suricata i
 sat     5/25/25    11:45am                       intent on simulating an llmnr poisoning attack using 
                                                  responder on kali, spin up new kali vm & install 
                                                  desktop environment, read a few resources on llmnr 
-                                                 responder attacks,
+                                                 responder attacks, spin up w11 pro machine to act as 
+                                                 victim, read official responder docs from kali. 
+                                                 simultaneously begin working on noxious sherlock from
+                                                 htb.
