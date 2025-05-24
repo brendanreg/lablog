@@ -11,7 +11,7 @@ sun     5/18/25    7:15pm     11:00pm    3.75    spun up a pfsense ce vm,
                                                  created new udp data input and leveraged 
                                                  TA-pfSense splunk add-on in conjunction 
                                                  with CIM to receive logs & read fields 
-                                                 from pfSense. 	
+                                                 from pfSense
 
 mon     5/19/25    11:10pm     11:35pm   0.50    Read about open source IDS solutions, 
                                                  decide on Suricata due to pfsense and 
@@ -21,14 +21,15 @@ mon     5/19/25    11:10pm     11:35pm   0.50    Read about open source IDS solu
 
 tues    5/20/25    5:15pm      5:43pm    0.50    enable suricata on wan interface, discover 
                                                  and troubleshoot immediate connectivity issues 
-                                                 due to ids blocking everything lol.
+                                                 due to ids blocking everything lol
 
 fri     5/24/25    10:45pm    12:11am    1.50    post-research on ids/suricata implementation on 
                                                  pfsense & lab environment network rebuild - configure 
                                                  suricata global settings, download snort community 
                                                  rules, etc. and enable on lan interface so as not to 
                                                  disrupt shared vswitch
+
 sat     5/25/25    11:45am                       intent on simulating an llmnr poisoning attack using 
-                                                 responder on kali. spin up new kali vm & install 
+                                                 responder on kali, spin up new kali vm & install 
                                                  desktop environment, read a few resources on llmnr 
                                                  responder attacks,
