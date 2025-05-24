@@ -10,14 +10,17 @@ they've provided us with a single artifact for this one; a pcap file. we'll be u
 to begin, we know the ip address of the victim machine: 172.17.79.136. to identify the attacker's ip, we can search the traffic for the llmnr protocol, which use port 5355.
 we can also exclude ipv6 traffic as we know the responses were directed towards an ipv4 address.
 after applying the filter "llmnr && not ipv6", we're left with a manageable list of packets. 
+
 <img width="509" alt="image" src="https://github.com/user-attachments/assets/4edc4d56-4f60-42a3-901f-8704844580ff" />
 
 let's check the endpoints tab in statistics to familiarize ourselves with all of the players here:
+
 <img width="581" alt="image" src="https://github.com/user-attachments/assets/bf2d99ab-58d3-47a5-afb4-4a6b288a9098" />
 
 
 we can see 4 addresses involved in our filter. one is a multicast address and another is the legitimate machine mentioned in the scenario, so let's ignore those. that leaves us with two potential attackers: 172.17.79.129 & 172.17.79.135.
 let's take a closer look by filtering our traffic further to only include these two potential targets by applying the filter "llmnr && not ipv6 && (ip.src==172.17.79.129 || ip.src==172.17.79.135)":
+
 <img width="833" alt="image" src="https://github.com/user-attachments/assets/490815f6-c30c-4660-8a02-00fc27975920" />
 
 here we can see a plethora of llmnr responses eminating from 135 to 136 (our victim), and 129 (our other suspect). this indicates to me we've found our culprit.
@@ -27,6 +30,7 @@ q2:
 **What is the hostname of the rogue machine?**
 
 this one should be simple. the device is likely getting a dhcp address, and it must send a request to do so. dhcp requests will include device hostnames. let's try the filter "ip.src==172.17.79.135 && dhcp" to see if that's the case:
+
 <img width="481" alt="image" src="https://github.com/user-attachments/assets/61b19436-a6db-4b26-9c79-dcd608d4a730" />
 
 Answer: kali
@@ -35,6 +39,7 @@ q3:
 **Now we need to confirm whether the attacker captured the user's hash and it is crackable!! What is the username whose hash was captured?**
 
 we can search for ntlmssb to see if authentication was attempted, and check for the acct name in the smb header:
+
 <img width="761" alt="image" src="https://github.com/user-attachments/assets/6e03e244-a78e-4794-8f60-91134b434b62" />
 
 Answer: john.deacon
@@ -50,6 +55,7 @@ q5:
 **What was the typo made by the victim when navigating to the file share that caused his credentials to be leaked?**
 
 let's go back to our llmnr filter with ip.src set to the victim's ip and see if we can inspect his llmnr request packet:
+
 <img width="470" alt="image" src="https://github.com/user-attachments/assets/010ad281-7cad-4f84-9132-1e05cc162dc0" />
 
 Answer: DCC01
@@ -58,6 +64,7 @@ q6:
 **To get the actual credentials of the victim user we need to stitch together multiple values from the ntlm negotiation packets. What is the NTLM server challenge value?**
 
 in the initial session setup response packet from the adversary, we can find the challenge value:
+
 <img width="476" alt="image" src="https://github.com/user-attachments/assets/694747a4-dffb-40d6-b0e6-2debc04b2cbc" />
 
 Answer: NTLM Server Challenge: 601019d191f054f1
@@ -66,6 +73,7 @@ q7:
 **Now doing something similar find the NTProofStr value.**
 
 assuming this has to do with the response to the challenge, let's look at the next packet originating from the victim:
+
 <img width="479" alt="image" src="https://github.com/user-attachments/assets/af6345e2-d9c8-424e-9630-f86d26df7373" />
 
 Answer: NTProofStr: c0cc803a6d9fb5a9082253a04dbd4cd4
@@ -89,6 +97,7 @@ q9:
 **Just to get more context surrounding the incident, what is the actual file share that the victim was trying to navigate to?**
 
 let's return to wireshark and filter for smb2 traffic. if anyone connected to a share, we'd see it:
+
 <img width="815" alt="image" src="https://github.com/user-attachments/assets/a0b1d6ef-a274-4aeb-b8da-7b7981520e48" />
 
 there's a couple of packets showing the victim machine connecting to different shares, but one of them occurs less than a minute after the typo, so let's go with that one.
