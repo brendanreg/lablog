@@ -12,3 +12,37 @@ What is LLMNR poisoning? What are responder attacks?
 
 <img width="345" alt="network diagram" src="https://github.com/user-attachments/assets/cc477f55-d432-4727-af12-a605bf202d59" />
 
+Let's set the stage:
+We've got an ad domain comprised of a dc and a client machine, which we will target for this attack. We have kali ready with responder to carry out the attack. finally, we've converted our private switch to an internal one in hyper-v, which allows our host os to peer inside and watch the traffic with wireshark.
+So, let's kick off the capture in wireshark and start up responder on kali:
+
+<img width="427" alt="image" src="https://github.com/user-attachments/assets/6bfdd0a2-f1a1-4667-85b4-69084cbfa569" />
+
+<img width="479" alt="image" src="https://github.com/user-attachments/assets/aa4911ca-2f07-4692-8659-39005d820531" />
+
+<img width="333" alt="image" src="https://github.com/user-attachments/assets/5b94299c-6782-4674-b387-9aceff15f45f" />
+
+Now, let's browse to the legitimate fileshare just to see what kind of traffic we get, and we can compare it to the llmnr traffic we'll prompt later:
+
+
+And now, let's simulate an accidental typo on the part of the victim when attempting to browse to that same share:
+<img width="454" alt="image" src="https://github.com/user-attachments/assets/442b37ef-8a77-45a2-9ef1-2f773b2e87fa" />
+
+and let's see if we generated any llmnr traffic. if we did, our attack was probably successful!
+
+<img width="678" alt="image" src="https://github.com/user-attachments/assets/5bacdde9-313d-45dd-bb99-997bca14d6e1" />
+
+
+nice, our victim sent out some llmnr requests, let's see if our attacker at 10.0.1.11 grabbed those credentials...
+
+<img width="326" alt="image" src="https://github.com/user-attachments/assets/a16a4714-a9dc-4688-8f9a-c4694bb00516" />
+
+that was easy! let's see if we can crack this hash and reveal wvictim's password. all we need to do is feed the string we got from responder into hashcat. let's create a text file so hashcat can read it:
+
+<img width="325" alt="image" src="https://github.com/user-attachments/assets/d20f0803-407e-4e3e-9987-d093468e1f2a" />
+
+
+
+
+
+
