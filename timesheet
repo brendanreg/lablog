@@ -23,13 +23,13 @@ tues    5/20/25    5:15pm      5:43pm    0.50    enable suricata on wan interfac
                                                  and troubleshoot immediate connectivity issues 
                                                  due to ids blocking everything lol
 
-fri     5/24/25    10:45pm    12:11am    1.50    post-research on ids/suricata implementation on 
+fri     5/23/25    10:45pm    12:11am    1.50    post-research on ids/suricata implementation on 
                                                  pfsense & lab environment network rebuild - configure 
                                                  suricata global settings, download snort community 
                                                  rules, etc. and enable on lan interface so as not to 
                                                  disrupt shared vswitch
 
-sat     5/25/25    11:45am    3:40pm             intent on simulating an llmnr poisoning attack using 
+sat     5/24/25    11:45am    3:40pm     4.00    intent on simulating an llmnr poisoning attack using 
                                                  responder on kali, spin up new kali vm & install 
                                                  desktop environment, read a few resources on llmnr 
                                                  responder attacks, spin up w11 pro machine to act as 
@@ -37,3 +37,11 @@ sat     5/25/25    11:45am    3:40pm             intent on simulating an llmnr p
                                                  simultaneously begin working on noxious sherlock from
                                                  htb and complete it along with write up on solution, 
                                                  intent on working on llmnr simulation tomorrow.
+
+sat     5/24/25    6:30pm                        finish setting the stage for llmnr poisoning 
+                                                 simulation; join w11 victim machine to domain, 
+                                                 create fileshare on dc & verify ability to reach 
+                                                 it via victim machine, switch private switch to 
+                                                 internal to allow host os to peer inside and capture 
+                                                 traffic with wireshark, 
+
