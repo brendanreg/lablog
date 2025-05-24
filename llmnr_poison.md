@@ -10,3 +10,4 @@ What is LLMNR poisoning? What are responder attacks?
   the requesting machine then attempts to authenticate to the false location by providing their domain credentials. and voila, we've stolen the username and 
   password hash of an unsuspecting user.
 
+<img width="345" alt="network diagram" src="https://github.com/user-attachments/assets/cc477f55-d432-4727-af12-a605bf202d59" />
