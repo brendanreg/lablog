@@ -9,10 +9,12 @@ What is LLMNR poisoning? What are responder attacks?
   the requesting machine then attempts to authenticate to the false location by providing their domain credentials. and voila, we've stolen the username and 
   password hash of an unsuspecting user.
 
+For a more ridgid definition, let's consult the MITRE ATT&CK framework. We can find LLMNR Poisoning and SMB relay under Adversary-In-The-Middle. ID T1557.001:
+
 <img width="345" alt="network diagram" src="https://github.com/user-attachments/assets/cc477f55-d432-4727-af12-a605bf202d59" />
 
 Let's set the stage:
-We've got an ad domain comprised of a dc and a client machine, which we will target for this attack. We have kali ready with responder to carry out the attack. finally, we've converted our private switch to an internal one in hyper-v, which allows our host os to peer inside and watch the traffic with wireshark.
+We've got an ad domain comprised of a dc and a client machine, which we will target for this attack. We have kali ready with responder to carry out the attack. finally, we've converted our private switch to an internal one in hyper-v, which allows our host os to recieve multicast traffic from the simulation environment.
 So, let's kick off the capture in wireshark and start up responder on kali:
 
 <img width="427" alt="image" src="https://github.com/user-attachments/assets/6bfdd0a2-f1a1-4667-85b4-69084cbfa569" />
