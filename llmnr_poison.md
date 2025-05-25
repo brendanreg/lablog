@@ -20,14 +20,13 @@ Let's set the stage:
 We've got an ad domain comprised of a dc and a client machine, which we will target for this attack. We have kali ready with responder to carry out the attack. finally, we've converted our private switch to an internal one in hyper-v, which allows our host os to recieve multicast traffic from the simulation environment.
 So, let's kick off the capture in wireshark and start up responder on kali:
 
--
+-wireshark capture on host os internal vswitch interface to recieve multicast traffic from llmnr requests
 <img width="479" alt="image" src="https://github.com/user-attachments/assets/aa4911ca-2f07-4692-8659-39005d820531" />
 
--
-<img width="333" alt="image" src="https://github.com/user-attachments/assets/5b94299c-6782-4674-b387-9aceff15f45f" />
-
--
+-command to initialize responder on our attacker's eth0 interface, which is operating with on the internal network.
 <img width="427" alt="image" src="https://github.com/user-attachments/assets/6bfdd0a2-f1a1-4667-85b4-69084cbfa569" />
+
+<img width="333" alt="image" src="https://github.com/user-attachments/assets/5b94299c-6782-4674-b387-9aceff15f45f" />
 
 Now, let's browse to the legitimate fileshare just to see what kind of traffic we get, and we can compare it to the llmnr traffic we'll prompt later:
 
