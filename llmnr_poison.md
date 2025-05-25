@@ -21,13 +21,13 @@ We've got an ad domain comprised of a dc and a client machine, which we will tar
 So, let's kick off the capture in wireshark and start up responder on kali:
 
 -
-<img width="427" alt="image" src="https://github.com/user-attachments/assets/6bfdd0a2-f1a1-4667-85b4-69084cbfa569" />
-
--
 <img width="479" alt="image" src="https://github.com/user-attachments/assets/aa4911ca-2f07-4692-8659-39005d820531" />
 
 -
 <img width="333" alt="image" src="https://github.com/user-attachments/assets/5b94299c-6782-4674-b387-9aceff15f45f" />
+
+-
+<img width="427" alt="image" src="https://github.com/user-attachments/assets/6bfdd0a2-f1a1-4667-85b4-69084cbfa569" />
 
 Now, let's browse to the legitimate fileshare just to see what kind of traffic we get, and we can compare it to the llmnr traffic we'll prompt later:
 
