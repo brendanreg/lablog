@@ -1,4 +1,4 @@
-Goal: Simulate an LLMNR poison attack to steal credentials from user attempting to access an SMB file share in AD. Analyze with wireshark, pfsense, and windows event logs.
+Goal: Simulate an LLMNR poison attack to steal credentials from user attempting to access an SMB file share in AD. Analyze with wireshark packet capture.
 Prerequisites: An active directory domain including a DC & w11 client machine, along with a kali machine residing on the same internal network.
 Resources: https://www.cynet.com/attack-techniques-hands-on/llmnr-nbt-ns-poisoning-and-credential-access-using-responder/#heading-4 , https://app.hackthebox.com/sherlocks/Noxious, https://www.kali.org/tools/responder/
 
