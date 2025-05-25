@@ -11,16 +11,22 @@ What is LLMNR poisoning? What are responder attacks?
 
 For a more ridgid definition, let's consult the MITRE ATT&CK framework. We can find LLMNR Poisoning and SMB relay under Adversary-In-The-Middle. ID T1557.001:
 
-<img width="345" alt="network diagram" src="https://github.com/user-attachments/assets/cc477f55-d432-4727-af12-a605bf202d59" />
+<img width="661" alt="image" src="https://github.com/user-attachments/assets/c4957ea8-d5c3-4196-bc83-3c0bad8d90e6" />
 
 Let's set the stage:
+
+<img width="345" alt="network diagram" src="https://github.com/user-attachments/assets/cc477f55-d432-4727-af12-a605bf202d59" />
+
 We've got an ad domain comprised of a dc and a client machine, which we will target for this attack. We have kali ready with responder to carry out the attack. finally, we've converted our private switch to an internal one in hyper-v, which allows our host os to recieve multicast traffic from the simulation environment.
 So, let's kick off the capture in wireshark and start up responder on kali:
 
+-
 <img width="427" alt="image" src="https://github.com/user-attachments/assets/6bfdd0a2-f1a1-4667-85b4-69084cbfa569" />
 
+-
 <img width="479" alt="image" src="https://github.com/user-attachments/assets/aa4911ca-2f07-4692-8659-39005d820531" />
 
+-
 <img width="333" alt="image" src="https://github.com/user-attachments/assets/5b94299c-6782-4674-b387-9aceff15f45f" />
 
 Now, let's browse to the legitimate fileshare just to see what kind of traffic we get, and we can compare it to the llmnr traffic we'll prompt later:
