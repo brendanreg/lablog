@@ -38,10 +38,12 @@ sat     5/24/25    11:45am    3:40pm     4.00    intent on simulating an llmnr p
                                                  htb and complete it along with write up on solution, 
                                                  intent on working on llmnr simulation tomorrow.
 
-sat     5/24/25    6:30pm                        finish setting the stage for llmnr poisoning 
+sat     5/24/25    6:30pm     8:00pm     1.50    finish setting the stage for llmnr poisoning 
                                                  simulation; join w11 victim machine to domain, 
                                                  create fileshare on dc & verify ability to reach 
                                                  it via victim machine, switch private switch to 
                                                  internal to allow host os to peer inside and capture 
-                                                 traffic with wireshark, 
+                                                 traffic with wireshark, simulate llmnr poison attack 
+                                                 with responder and analyze traffic with wireshark + 
+                                                 create writeup on github
 
