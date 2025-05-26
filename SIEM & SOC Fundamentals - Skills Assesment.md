@@ -26,6 +26,8 @@ The Linux environment is primarily 'left over' servers from back in the day, whi
 
 Naming conventions exist and are strictly followed; for example, service accounts contain '-svc' as part of their name. Service accounts are created with long, complex passwords, and they perform a very specific task (most likely running services locally on machines).
 
+**Question 1:**
+
 <img width="618" alt="image" src="https://github.com/user-attachments/assets/0f97b9aa-e9fc-4ec0-8ce8-0b3057e48cb9" />
 
 Let's jump into our custom dashboard as directed and take a look at our alerts:
@@ -48,9 +50,26 @@ aha! there's a similar username with several login events. let's take a closer l
 
 <img width="948" alt="image" src="https://github.com/user-attachments/assets/bbed6624-58f0-48cb-86e3-c709e6a09117" />
 
-uh oh - we've got successful **network** logins from this account into DC1 and DC2. Recall that service accounts are strictly for local service management.
+uh oh - we've got successful **network** logins from this account into DC1 and DC2. Recall that service accounts are strictly for local service management. For bonus points, let's map this to MITRE ATT&CK Framework:
+Initial Access - Valid Accounts: Local Accounts (T1078.003)
+<img width="452" alt="image" src="https://github.com/user-attachments/assets/de666d5b-8c88-4632-8334-24c47ac55ff2" />
+
+
 The basic IRP we recieved in the prior node tells us we should consult with IT ops next.
 
+**Question 2:**
+
+<img width="614" alt="image" src="https://github.com/user-attachments/assets/39e3fbae-907e-4ae9-9f42-5ad1d5cab8af" />
+
+Let's have a look as directed:
+
+<img width="466" alt="image" src="https://github.com/user-attachments/assets/f017728d-e2a7-4234-9661-3a9a6f5fb23f" />
+
+Only one login attempt from a singular disabled account. This isn't screaming suspicious to me. More likely a user who locked themselves out with too many bad password attempts, saw the account locked error message, and had it resolved by IT. But let's dig a bit deeper just to confirm:
+
+<img width="698" alt="image" src="https://github.com/user-attachments/assets/9a43b847-f4dd-49eb-bde7-a5527ae9d09c" />
+
+It turns out there are an ocean of succesful logons to DC1 with this account. This is highly suspicious, but since we don't know the nature of this account, and understand that IT operations have a habit of logging in with local admin accounts to perform administrative tasks, we'll escalate this one to tier 2/3 analysts.
 
 
 
